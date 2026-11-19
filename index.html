@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlockCraft &middot; Visual Block Coding</title>
+  <meta name="description" content="A web-based visual block coding platform built on Blockly. Drag blocks, build a program, and see the code instantly." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E" />
+
+  <!-- Blockly (UMD bundle — includes the core engine AND all built-in blocks) -->
+  <script src="https://unpkg.com/blockly@13/blockly.min.js"></script>
+  <!-- Built-in JavaScript generator (adds Blockly.JavaScript with generators
+       for the standard control-flow / math / variable blocks) -->
+  <script src="https://unpkg.com/blockly@13/javascript_compressed.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">🧩</span>
+      <div>
+        <h1>BlockCraft</h1>
+        <p>Visual block coding platform</p>
+      </div>
+    </div>
+    <nav class="actions">
+      <button id="btn-save" class="btn" title="Save to this browser">💾 Save</button>
+      <button id="btn-load" class="btn" title="Load from this browser">📂 Load</button>
+      <button id="btn-export" class="btn" title="Download workspace as JSON">⬇️ Export</button>
+      <label class="btn file-btn" title="Import a workspace JSON file">
+        ⬆️ Import
+        <input id="file-input" type="file" accept="application/json,.json" hidden />
+      </label>
+      <button id="btn-clear" class="btn danger" title="Delete all blocks">🗑️ Clear</button>
+    </nav>
+  </header>
+
+  <main class="layout">
+    <section class="panel workspace-panel" aria-label="Block workspace">
+      <div id="blockly-div"></div>
+    </section>
+
+    <section class="panel code-panel" aria-label="Generated code">
+      <div class="code-header">
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="js" role="tab">JavaScript</button>
+          <button class="tab" data-tab="robot" role="tab">Robot Commands</button>
+        </div>
+        <button id="btn-copy" class="btn small">Copy</button>
+      </div>
+      <pre id="output" class="code-output"><code>// Drag blocks onto the canvas to see your code.</code></pre>
+    </section>
+  </main>
+
+  <!-- Custom blocks: toolbox + generators + definitions -->
+  <script src="js/blocks.js"></script>
+  <script src="js/generators.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+

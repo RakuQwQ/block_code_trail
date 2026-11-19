@@ -1,0 +1,15 @@
+{
+  "name": "blockcraft",
+  "version": "1.0.0",
+  "description": "A web-based visual block coding platform built on Blockly. Drag blocks, build a program, and see the code instantly.",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server . -p 8080 -c-1",
+    "test": "node test/ui.cjs && node test/deep.cjs"
+  },
+  "keywords": ["blockly", "block-coding", "visual-programming", "education"],
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer-core": "^23.11.1"
+  }
+}
