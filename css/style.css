@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #0f1220;
   --bg-soft: #171a2e;
   --panel: #1e2238;
@@ -195,3 +195,44 @@ body {
 /* Blockly tweaks */
 .blocklyMainBackground { stroke: none !important; }
 .blocklyToolboxDiv { border-right: 1px solid var(--border); }
+
+/* ---------- Toolbox category labels: BLACK text ---------- */
+/* The dark Blockly theme renders category labels in white; force black so
+   they read clearly against the light, colour-tinted category rows below. */
+.blocklyToolboxDiv .blocklyToolboxCategoryLabel,
+.blocklyToolboxDiv .blocklyTreeLabel,
+.blocklyToolboxCategory .blocklyToolboxCategoryLabel,
+.blocklyTreeRow .blocklyTreeLabel,
+.blocklyToolboxCategoryLabel,
+.blocklyTreeLabel {
+  color: #000 !important;
+  fill: #000 !important;
+  font-weight: 700;
+}
+
+/* Light tinted rows keep the black labels legible in the toolbox column. */
+.blocklyToolboxCategory,
+.blocklyTreeRow {
+  background: #e3e9ff;
+  border-radius: 8px;
+  margin: 2px 6px;
+  cursor: pointer;
+}
+.blocklyToolboxCategory:hover,
+.blocklyTreeRow:hover {
+  background: #cdd8ff;
+}
+.blocklyToolboxCategory.blocklyToolboxSelected,
+.blocklyToolboxCategory[aria-selected="true"],
+.blocklyTreeSelected {
+  background: #b8c8ff !important;
+}
+.blocklyToolboxCategory .blocklyTreeIcon,
+.blocklyTreeIcon {
+  filter: none;
+}
+
+/* Category title shown at the top of the flyout. */
+.blocklyFlyoutLabelText {
+  fill: #000 !important;
+}

@@ -1,4 +1,4 @@
-// UI test: drive the real page ??click every toolbox category, confirm blocks
+﻿// UI test: drive the real page ??click every toolbox category, confirm blocks
 // appear in the flyout, check the live code panel, and switch to Robot tab.
 const http = require('http');
 const fs = require('fs');
@@ -41,7 +41,7 @@ function serve() {
   await new Promise((r) => setTimeout(r, 1000));
 
   // Category labels rendered in the toolbox column.
-  const catLabels = await page.$$eval('.blocklyTreeLabel', (els) =>
+  const catLabels = await page.$$eval('.blocklyToolboxCategoryLabel, .blocklyTreeLabel', (els) =>
     els.map((e) => e.textContent.trim())
   );
 

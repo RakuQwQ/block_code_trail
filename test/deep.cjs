@@ -39,9 +39,24 @@ const REQUIRED = [
   'robot_lay',
   'robot_lower_body',
   'robot_higher_body',
-  'robot_scan_front',
+    'robot_scan_front',
   'robot_set_variable',
   'robot_math_calc',
+  // new / extended blocks
+    'robot_sit_down',
+  'robot_array_create',
+  'robot_array_add',
+  'robot_array_get',
+  'robot_array_length',
+  'robot_array_delete',
+  'robot_array_find',
+  'robot_array_sort',
+  'robot_math_round',
+  'robot_math_power',
+  'robot_math_minmax',
+  'robot_math_random',
+  'robot_math_constrain',
+  'robot_math_remainder',
 ];
 
 (async () => {

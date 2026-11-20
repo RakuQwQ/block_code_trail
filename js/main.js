@@ -13,7 +13,7 @@
   /* ------------------------------------------------------------------ */
   /* Boot                                                               */
   /* ------------------------------------------------------------------ */
-  function boot() {
+    function boot() {
     // Inject Blockly into its container.
     workspace = Blockly.inject('blockly-div', {
       toolbox: buildToolbox(),
@@ -24,6 +24,13 @@
       move: { scrollbars: true, drag: true, wheel: true },
       trashcan: true,
     });
+
+    // Register the dynamic Variables category + its "Create variable" button.
+    workspace.registerToolboxCategoryCallback(
+      'VARIABLES_PRESETS',
+      variablesCategoryFlyout
+    );
+    registerVariableCategory(workspace);
 
     // Show generated code whenever the workspace changes (debounced).
     workspace.addChangeListener(onWorkspaceChange);
@@ -225,9 +232,11 @@
       html = html.replace(/\b([A-Za-z_]\w*)(?=\s*\()/g, '<span class="tok-fn">$1</span>');
     } else {
       // Robot commands: highlight the leading keyword of each line.
-      const KEYWORDS = [
-        'TURN LEFT', 'TURN RIGHT', 'JUMP', 'DANCE', 'LAY DOWN',
-        'LOWER BODY', 'RAISE BODY', 'SCAN_FRONT', 'if', 'else', 'while', 'for',
+            const KEYWORDS = [
+        'TURN LEFT', 'TURN RIGHT', 'JUMP', 'DANCE', 'LAY DOWN', 'SIT DOWN',
+        'LOWER BODY', 'RAISE BODY', 'STOP', 'LOAD', 'UNLOAD', 'SPEAK',
+        'RECOGNIZE', 'STORE IN', 'DEFINE', 'START',
+        'if', 'else', 'while', 'for',
       ];
       KEYWORDS.forEach((kw) => {
         const re = new RegExp('\\b' + kw.replace(/ /g, '\\s') + '\\b', 'g');
