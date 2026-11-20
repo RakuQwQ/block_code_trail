@@ -71,6 +71,10 @@ jsGen.forBlock['robot_speak'] = function (block) {
   var content = block.getFieldValue('CONTENT') || '';
   return 'robot.speak(' + JSON.stringify(content) + ');\n';
 };
+jsGen.forBlock['robot_walk_forward'] = function (block) {
+  var distance = block.getFieldValue('DISTANCE') || '';
+  return 'robot.walkForward(' + JSON.stringify(distance) + ');\n';
+};
 jsGen.forBlock['robot_lower_body'] = function (block) {
   return 'robot.lowerBody(' + block.getFieldValue('AMOUNT') + ');\n';
 };
@@ -249,6 +253,10 @@ robotGen.forBlock['robot_unload'] = function (b) {
 robotGen.forBlock['robot_speak'] = function (b) {
   var content = b.getFieldValue('CONTENT') || '';
   return 'SPEAK "' + content + '"\n';
+};
+robotGen.forBlock['robot_walk_forward'] = function (b) {
+  var distance = b.getFieldValue('DISTANCE') || '';
+  return 'WALK FORWARD ' + distance + '\n';
 };
 robotGen.forBlock['robot_lower_body'] = function (b) {
   return 'LOWER BODY ' + b.getFieldValue('AMOUNT') + 'cm\n';

@@ -66,6 +66,7 @@ const BLOCK_CATEGORIES = [
             { kind: 'block', type: 'robot_load' },
             { kind: 'block', type: 'robot_unload' },
             { kind: 'block', type: 'robot_speak' },
+            { kind: 'block', type: 'robot_walk_forward' },
             { kind: 'block', type: 'robot_scan_front' },
     ],
   },
@@ -234,6 +235,21 @@ Blockly.Blocks['robot_speak'] = {
     this.setNextStatement(true, null);
     this.setColour(35);
     this.setTooltip('Make the robot speak the given text.');
+  },
+};
+
+/* Walk forward: walk forward by an amount given as a string (e.g. "3 steps",
+   "2 meters"). Uses a direct string input field. */
+Blockly.Blocks['robot_walk_forward'] = {
+  init: function () {
+    this.appendDummyInput()
+      .appendField('walk forward')
+      .appendField(new Blockly.FieldTextInput('1 step'), 'DISTANCE');
+    this.setInputsInline(true);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(35);
+    this.setTooltip('Walk the robot forward by the given amount (text).');
   },
 };
 

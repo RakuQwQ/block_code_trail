@@ -235,6 +235,7 @@
             const KEYWORDS = [
         'TURN LEFT', 'TURN RIGHT', 'JUMP', 'DANCE', 'LAY DOWN', 'SIT DOWN',
         'LOWER BODY', 'RAISE BODY', 'STOP', 'LOAD', 'UNLOAD', 'SPEAK',
+        'WALK FORWARD',
         'RECOGNIZE', 'STORE IN', 'DEFINE', 'START',
         'if', 'else', 'while', 'for',
       ];
